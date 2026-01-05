@@ -53,11 +53,13 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-# Touchpad adjustments
-exec --no-startup-id xinput set-prop 16 "libinput Natural Scrolling Enabled" 1
-exec --no-startup-id xinput set-prop 16 "libinput Tapping Enabled" 1
-exec --no-startup-id xinput set-prop 16 "libinput Accel Profile Enabled" 0, 1
-exec --no-startup-id xinput set-prop 16 "libinput Accel Speed" 1.0
+# Touchpad settings
+exec --no-startup-id xinput set-prop "ELAN0524:01 04F3:3215 Touchpad" "libinput Tapping Enabled" 1
+exec --no-startup-id xinput set-prop "ELAN0524:01 04F3:3215 Touchpad" "libinput Tapping Drag Enabled" 1
+exec --no-startup-id xinput set-prop "ELAN0524:01 04F3:3215 Touchpad" "libinput Tapping Button Mapping Enabled" 1 1
+exec --no-startup-id xinput set-prop "ELAN0524:01 04F3:3215 Touchpad" "libinput Natural Scrolling Enabled" 1
+exec --no-startup-id xinput set-prop "ELAN0524:01 04F3:3215 Touchpad" "libinput Accel Speed" 0.7
+exec --no-startup-id xinput set-prop "ELAN0524:01 04F3:3215 Touchpad" "libinput Accel Profile Enabled" 0 1
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -65,7 +67,6 @@ floating_modifier $mod
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.
 tiling_drag modifier titlebar
-
 # start a terminal
 bindsym $mod+Return exec alacritty
 
