@@ -55,12 +55,12 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # Touchpad settings
-exec --no-startup-id xinput set-prop "ELAN0524:01 04F3:3215 Touchpad" "libinput Tapping Enabled" 1
-exec --no-startup-id xinput set-prop "ELAN0524:01 04F3:3215 Touchpad" "libinput Tapping Drag Enabled" 1
-exec --no-startup-id xinput set-prop "ELAN0524:01 04F3:3215 Touchpad" "libinput Tapping Button Mapping Enabled" 1 1
-exec --no-startup-id xinput set-prop "ELAN0524:01 04F3:3215 Touchpad" "libinput Natural Scrolling Enabled" 1
-exec --no-startup-id xinput set-prop "ELAN0524:01 04F3:3215 Touchpad" "libinput Accel Speed" 0.5
-exec --no-startup-id xinput set-prop "ELAN0524:01 04F3:3215 Touchpad" "libinput Accel Profile Enabled" 0 1
+exec_always --no-startup-id xinput set-prop "ELAN0524:01 04F3:3215 Touchpad" "libinput Tapping Enabled" 1
+exec_always --no-startup-id xinput set-prop "ELAN0524:01 04F3:3215 Touchpad" "libinput Tapping Drag Enabled" 1
+exec_always --no-startup-id xinput set-prop "ELAN0524:01 04F3:3215 Touchpad" "libinput Tapping Button Mapping Enabled" 1 1
+exec_always --no-startup-id xinput set-prop "ELAN0524:01 04F3:3215 Touchpad" "libinput Natural Scrolling Enabled" 1
+exec_always --no-startup-id xinput set-prop "ELAN0524:01 04F3:3215 Touchpad" "libinput Accel Speed" 0.7
+exec_always --no-startup-id xinput set-prop "ELAN0524:01 04F3:3215 Touchpad" "libinput Accel Profile Enabled" 1 0
 exec_always --no-startup-id xinput set-prop 10 "libinput Scrolling Distance Unit" 1.0 1.0
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -76,7 +76,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-#bindsym $mod+d exec --no-startup-id dmenu_run
+# bindsym $mod+d exec --no-startup-id dmenu_run
 # A more modern dmenu replacement is rofi:
 bindsym $mod+space exec "rofi -modi drun,run -show drun"
 
@@ -175,7 +175,8 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-bindsym $mod+Shift+p exec "i3-nagbar -t warning -m 'Power options:' \
+
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Power options:' \
 -B 'Shutdown' 'systemctl poweroff' \
 -B 'Reboot' 'systemctl reboot' \
 -B 'Logout' 'i3-msg exit'"
@@ -184,6 +185,7 @@ bindsym XF86PowerOff exec "i3-nagbar -t warning -m 'Power options:' \
 -B 'Shutdown' 'systemctl poweroff' \
 -B 'Reboot' 'systemctl reboot' \
 -B 'Logout' 'i3-msg exit'"
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -244,3 +246,6 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 bindsym Ctrl+mod1+s exec --no-startup-id flameshot gui -p ~/Pictures/Screenshots/ 
 bindsym Ctrl+mod1+Shift+s exec --no-startup-id flameshot full -p ~/Pictures/Screenshots/ 
 
+exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
+
+exec_always --no-startup-id feh --bg-fill /home/txim/Pictures/Wallpapers/wp14824612-hollow-knight-wallpapers.webp
